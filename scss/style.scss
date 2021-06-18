@@ -1,0 +1,361 @@
+@charset "utf-8"; 
+
+//변수
+$main-color : #29bace;
+$title-color : #fff; //이미지에 따라서 유동적으로 변경
+$border-color: #d8d8d8;
+
+//믹스인
+@mixin aling-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+@mixin clearFix {
+    display: table;
+    content:'';
+    clear: both;
+}
+
+//배경
+html, body{
+    height: 100%;
+}
+body {
+    background: {
+        image : url("../upload/img/bg.png");    
+        repeat: no-repeat;  
+    };
+}
+
+.wrap {
+    background: {
+        color: #fff;
+    };
+    display: flex;
+    width: 1220px;
+    height: 88vh;
+}
+
+//왼쪽 이미지
+.imgArea {
+    flex: 1;
+    background : {
+        image: url("../upload/img/leftImg.png");
+        repeat: no-repeat;
+        size: cover;
+    }
+    .textArea {
+        color: $title-color;
+        position: absolute;
+        bottom: 0;
+        h2 {
+            color: $title-color;
+            font-size: 38px;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            strong {
+                display: block;
+            }
+        }
+        p {
+            font-size: 16px;
+        }
+    }
+}
+
+//form
+.formArea {
+    padding: 60px;
+    width: 400px;
+
+    .formItem {
+        margin-bottom: 24px;
+        position: relative;
+
+        p {
+            em {
+                color: $main-color;
+                margin-left: 2px;
+            }
+        }
+
+        a.sBtn {
+            color: $main-color;
+            font-weight: bold;
+            position: absolute;
+            top: 30px;
+            right: 0;
+            padding: 12px;
+        }
+
+        select, input[type='text'] {
+            width:400px;
+            font: {
+                size: 16px;
+            }
+            border: 1px solid $border-color;
+            line-height: 44px;
+            height: 44px;
+            padding: 0 12px;
+            margin-top: 8px;
+            box-sizing: border-box;
+
+            &:focus {
+                outline: 1px solid #000;
+            }
+        }  
+
+        option {
+            &:disabled {
+                display: none;
+            }
+        }
+
+        .radioItem {
+            line-height: 26px;
+            margin-top: 5px;
+
+            input[type="radio"] {
+                background: {
+                    image : url("../upload/icon/radioDefault.png");
+                    repeat : no-repeat;
+                };
+                width: 20px;
+                height: 20px;
+                vertical-align: text-top;
+                &:checked {
+                    background-image: url("../upload/icon/radioChecked.png");
+                }
+            }
+
+            label {
+                font-size: 16px;
+                margin-left: 4px;
+                margin-right: 80px;
+            }
+        }       
+    }
+    
+    .buttonArea {
+        input[type='submit'] {
+            width: 400px;
+            background-color: #000;
+            border: 1px solid #000;
+            color: #fff;
+            height: 50px;
+            margin-top: 16px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    
+        a.privacyModal {
+            color: $main-color;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    
+        input[type="checkbox"] {
+            cursor: pointer;
+            background: {
+                image : url("../upload/icon/checkboxDefault.png");
+                repeat : no-repeat;
+            };
+            width: 20px;
+            height: 20px;
+            vertical-align: text-top;
+            &:checked {background-image: url("../upload/icon/checkboxChecked.png");}
+        }
+
+        label {
+            margin-left: 4px;
+        }
+    }
+}
+//개인정보보호
+#privacyModal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    .modalWrap {
+        background: #fff;
+        width: 900px;
+        height: 80vh;
+        position: relative;
+        @include aling-center;
+        h3{
+            font-size: 24px;
+            text-align: center;
+            font-weight: bold;
+            color: #fff;
+            height: 60px;
+            line-height: 60px;
+            background: url("../upload/img/popupTitleBg.png") repeat-y;
+        }
+        a.close {
+            background: url("../upload/icon/closeWhite.png") no-repeat center;
+            display: block;
+            width: 32px;
+            height: 32px;
+            position: absolute;
+            top: 12px;
+            right: 12px;
+        }
+        .popupContWrap {
+            overflow-y: auto;
+            .popupCont {
+                padding: 30px;
+            }
+        }
+    }
+}
+
+
+//미디어쿼리
+@media screen and (min-width: 1025px) {
+    html, body {
+        overflow: hidden;
+    }
+    .wrap {
+        @include aling-center;
+    }
+    .textArea {
+        padding: 60px;
+        p {
+            span {
+                display: block;
+            }
+        }
+    }
+}
+@media screen and (max-width: 1220px) {
+    .wrap {
+        width: 1000px;
+    }
+    .formArea {
+        padding: 60px 40px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .wrap {
+        width: 80%;
+        position: relative;
+        display: block;
+        height: auto;
+        margin: 0 auto;
+    }
+    .imgArea {
+        background: {
+            image: url("../upload/img/image.jpg");
+            repeat: no-repeat;
+            size: cover;
+        };
+        width: 100%;
+        height: 300px;
+        position: relative;
+        .bgBlack {
+            background: rgba(0,0,0,0.5);
+            width: 100%;
+            height: inherit;
+        }
+        .textArea {
+            text-align: center;
+            width: 70%;
+            @include aling-center;
+        }
+    }
+    .formArea {
+        margin: 0 auto;
+        .formItem {
+            &::after {
+                @include clearFix;
+            }
+            input[type="radio"] {
+                display: none;
+                & + label{
+                    display: block;
+                    cursor: pointer;
+                    width: 50%;
+                    height: 44px;
+                    line-height: 44px;
+                    text-align: center;
+                    box-sizing: border-box;
+                    margin: 0;
+                    border: 1px solid $border-color;
+                    float: left;
+                }
+                &:checked + label {
+                    color: $main-color;
+                    border-color: $main-color;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 900px) {
+    #privacyModal{
+        .modalWrap {
+            width: 600px;
+        }
+    }
+}
+@media screen and (max-width: 630px) {
+    .wrap {
+        width: 100%;
+    }
+    .imgArea {
+        height: 240px;
+        .textArea {
+            width: 88%;
+            h2 {font-size: 24px;}
+            p {font-size: 13px;}
+        }
+    }
+    .formArea {
+        padding: 24px 15px 60px;
+        width: 100%;
+        box-sizing: border-box;
+        .formItem {
+            select, input[type='text'] {
+                width: 100%;
+            }
+        }
+        .buttonArea {
+            margin-top: 30px;
+            input[type='submit'] {
+                width: 100%;
+            }
+        }
+    }
+    #privacyModal{
+        .modalWrap {
+            width: 100%;
+            height: 100%;
+            h3 {
+                background: none;
+                color: #000;
+            }
+            a.close {
+                background: url("../upload/icon/closeBlack.png") no-repeat center;
+                width: 24px;
+                height: 24px;
+            }
+            .popupContWrap {
+                .popupCont {
+                    padding: 0 15px 15px;
+                    p {
+                        background: #f5f5f5;
+                        padding: 15px;
+                    }
+                }
+            }
+        }
+    }
+} 
