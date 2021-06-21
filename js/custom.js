@@ -8,16 +8,18 @@ $(document).ready(function(){
             event.preventDefault();
             if($(this).attr("rel") == "modal:open"){
                 if($(window).width() < 1024){
-                    posY = $(window).scrollTop();
-                    $(".wrap").css("top", -posY); 
+                    posY = $(document).scrollTop();
+                    $(".wrap").css("top", -posY);
                 }
-                $("#privacyModal").fadeIn();      
-                $("html, body").addClass("not_scroll");
-                
+                $("#privacyModal").fadeIn();  
+                $("html, body").addClass("not_scroll");    
             } else if($(this).attr("rel") == "modal:close"){
+                if($(window).width() < 1024){
+                    posY = $(document).scrollTop();
+                    $(".wrap").css("top", posY);
+                }
                 $("#privacyModal").fadeOut();  
                 $("html, body").removeClass("not_scroll");
-                posY = $(window).scrollTop();
             }
         });
 
@@ -27,6 +29,6 @@ $(document).ready(function(){
         if($(window).width() < 630){
             modalH = $(window).height();
         }
-        $(".popupContWrap").css("height", modalH - titleH);
+        $(".popupContWrap").css("height", modalH-titleH+"px");
     
 });

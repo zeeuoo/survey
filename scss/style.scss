@@ -19,16 +19,12 @@ $border-color: #d8d8d8;
 }
 
 //배경
-html, body{
-    height: 100%;
-}
 body {
     background: {
         image : url("../upload/img/bg.png");    
         repeat: no-repeat;  
     };
 }
-
 .wrap {
     background: {
         color: #fff;
@@ -69,85 +65,98 @@ body {
 .formArea {
     padding: 60px;
     width: 400px;
-
-    .formItem {
-        margin-bottom: 24px;
-        position: relative;
-
-        p {
-            em {
-                color: $main-color;
-                margin-left: 2px;
-            }
-        }
-
-        a.sBtn {
-            color: $main-color;
-            font-weight: bold;
-            position: absolute;
-            top: 30px;
-            right: 0;
-            padding: 12px;
-        }
-
-        select, input[type='text'] {
-            width:400px;
-            font: {
-                size: 16px;
-            }
-            border: 1px solid $border-color;
-            line-height: 44px;
-            height: 44px;
-            padding: 0 12px;
-            margin-top: 8px;
-            box-sizing: border-box;
-
-            &:focus {
-                outline: 1px solid #000;
-            }
-        }  
-
-        option {
-            &:disabled {
-                display: none;
-            }
-        }
-
-        .radioItem {
-            line-height: 26px;
-            margin-top: 5px;
-
-            input[type="radio"] {
-                background: {
-                    image : url("../upload/icon/radioDefault.png");
-                    repeat : no-repeat;
-                };
-                width: 20px;
-                height: 20px;
-                vertical-align: text-top;
-                &:checked {
-                    background-image: url("../upload/icon/radioChecked.png");
+    overflow: hidden;
+    overflow-y: auto;
+    .formWrap{
+        .formItem {
+            margin-bottom: 24px;
+            position: relative;
+    
+            p {
+                em {
+                    color: $main-color;
+                    margin-left: 2px;
                 }
             }
-
-            label {
-                font-size: 16px;
-                margin-left: 4px;
-                margin-right: 80px;
+    
+            a.sBtn {
+                color: #999999;
+                font-weight: bold;
+                position: absolute;
+                top: 30px;
+                right: 0;
+                padding: 11px;
             }
-        }       
+            a.sBtn.conform {
+                color: $main-color;
+            }
+    
+            select, input[type='text'] {
+                width:400px;
+                font: {
+                    size: 16px;
+                }
+                border: 1px solid $border-color;
+                line-height: 42px;
+                height: 44px;
+                padding: 0 12px;
+                margin-top: 8px;
+                box-sizing: border-box;
+    
+                &:focus {
+                    border: 1px solid #000;
+                    outline: 0;
+                }
+            }  
+    
+            option {
+                &:disabled {
+                    display: none;
+                }
+            }
+    
+            .radioItem {
+                line-height: 26px;
+                margin-top: 5px;
+    
+                input[type="radio"] {
+                    background: {
+                        image : url("../upload/icon/radioDefault.png");
+                        repeat : no-repeat;
+                        size: 100%;
+                    };
+                    width: 20px;
+                    height: 20px;
+                    vertical-align: text-top;
+                    &:checked {
+                        background-image: url("../upload/icon/radioChecked.png");
+                    }
+                }
+    
+                label {
+                    font-size: 16px;
+                    margin-left: 4px;
+                    margin-right: 80px;
+                }
+            }       
+        }
     }
     
     .buttonArea {
         input[type='submit'] {
             width: 400px;
-            background-color: #000;
-            border: 1px solid #000;
-            color: #fff;
+            background-color: #d2d2d2;
+            border: 1px solid #d2d2d2;
+            color: #999;
             height: 50px;
             margin-top: 16px;
             font-size: 16px;
             cursor: pointer;
+        }
+        .submit .conform {
+            background-color: #000;
+            border: 1px solid #000;
+            color: #fff;
         }
     
         a.privacyModal {
@@ -161,6 +170,7 @@ body {
             background: {
                 image : url("../upload/icon/checkboxDefault.png");
                 repeat : no-repeat;
+                size: 100%;
             };
             width: 20px;
             height: 20px;
@@ -170,6 +180,7 @@ body {
 
         label {
             margin-left: 4px;
+            line-height: 20px;
         }
     }
 }
@@ -184,7 +195,7 @@ body {
     .modalWrap {
         background: #fff;
         width: 900px;
-        height: 80vh;
+        height: 500px;
         position: relative;
         @include aling-center;
         h3{
@@ -222,6 +233,7 @@ body {
     }
     .wrap {
         @include aling-center;
+        box-shadow: 0px 4px 5px rgba(0,0,0,0.2);
     }
     .textArea {
         padding: 60px;
@@ -271,27 +283,30 @@ body {
     }
     .formArea {
         margin: 0 auto;
-        .formItem {
-            &::after {
-                @include clearFix;
-            }
-            input[type="radio"] {
-                display: none;
-                & + label{
-                    display: block;
-                    cursor: pointer;
-                    width: 50%;
-                    height: 44px;
-                    line-height: 44px;
-                    text-align: center;
-                    box-sizing: border-box;
-                    margin: 0;
-                    border: 1px solid $border-color;
-                    float: left;
+        .formWrap {
+            .formItem {
+                &::after {
+                    @include clearFix;
                 }
-                &:checked + label {
-                    color: $main-color;
-                    border-color: $main-color;
+                input[type="radio"] {
+                    display: none;
+                    & + label{
+                        display: block;
+                        cursor: pointer;
+                        width: 50%;
+                        height: 44px;
+                        line-height: 42px;
+                        text-align: center;
+                        box-sizing: border-box;
+                        margin: 0;
+                        border: 1px solid $border-color;
+                        background-color: #fff;
+                        float: left;
+                    }
+                    &:checked + label {
+                        color: $main-color;
+                        border-color: $main-color;
+                    }
                 }
             }
         }
@@ -322,9 +337,11 @@ body {
         padding: 24px 15px 60px;
         width: 100%;
         box-sizing: border-box;
-        .formItem {
-            select, input[type='text'] {
-                width: 100%;
+        .formWrap {
+            .formItem {
+                select, input[type='text'] {
+                    width: 100%;
+                }
             }
         }
         .buttonArea {
@@ -341,11 +358,18 @@ body {
             h3 {
                 background: none;
                 color: #000;
+                font-size: 18px;
             }
             a.close {
-                background: url("../upload/icon/closeBlack.png") no-repeat center;
+                background: {
+                    image : url("../upload/icon/closeBlack.png");
+                    repaet: no-repaet;
+                    positon: center;
+                    size: 100%;
+                }
                 width: 24px;
                 height: 24px;
+                top: 18px;
             }
             .popupContWrap {
                 .popupCont {
@@ -359,3 +383,11 @@ body {
         }
     }
 } 
+
+//IE10+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    /* Enter your style code */
+    .buttonArea {
+        margin-bottom: 60px;
+    }
+}

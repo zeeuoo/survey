@@ -1,0 +1,99 @@
+body { background-image: url("../upload/img/bg.png"); background-repeat: no-repeat; }
+
+.wrap { background-color: #fff; display: -webkit-box; display: -ms-flexbox; display: flex; width: 1220px; height: 88vh; }
+
+.imgArea { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; background-image: url("../upload/img/leftImg.png"); background-repeat: no-repeat; background-size: cover; }
+
+.imgArea .textArea { color: #fff; position: absolute; bottom: 0; }
+
+.imgArea .textArea h2 { color: #fff; font-size: 38px; line-height: 1.2; margin-bottom: 10px; }
+
+.imgArea .textArea h2 strong { display: block; }
+
+.imgArea .textArea p { font-size: 16px; }
+
+.formArea { padding: 60px; width: 400px; overflow: hidden; overflow-y: auto; }
+
+.formArea .formWrap .formItem { margin-bottom: 24px; position: relative; }
+
+.formArea .formWrap .formItem p em { color: #29bace; margin-left: 2px; }
+
+.formArea .formWrap .formItem a.sBtn { color: #999999; font-weight: bold; position: absolute; top: 30px; right: 0; padding: 11px; }
+
+.formArea .formWrap .formItem a.sBtn.conform { color: #29bace; }
+
+.formArea .formWrap .formItem select, .formArea .formWrap .formItem input[type='text'] { width: 400px; font-size: 16px; border: 1px solid #d8d8d8; line-height: 42px; height: 44px; padding: 0 12px; margin-top: 8px; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+.formArea .formWrap .formItem select:focus, .formArea .formWrap .formItem input[type='text']:focus { border: 1px solid #000; outline: 0; }
+
+.formArea .formWrap .formItem option:disabled { display: none; }
+
+.formArea .formWrap .formItem .radioItem { line-height: 26px; margin-top: 5px; }
+
+.formArea .formWrap .formItem .radioItem input[type="radio"] { background-image: url("../upload/icon/radioDefault.png"); background-repeat: no-repeat; background-size: 100%; width: 20px; height: 20px; vertical-align: text-top; }
+
+.formArea .formWrap .formItem .radioItem input[type="radio"]:checked { background-image: url("../upload/icon/radioChecked.png"); }
+
+.formArea .formWrap .formItem .radioItem label { font-size: 16px; margin-left: 4px; margin-right: 80px; }
+
+.formArea .buttonArea input[type='submit'] { width: 400px; background-color: #d2d2d2; border: 1px solid #d2d2d2; color: #999; height: 50px; margin-top: 16px; font-size: 16px; cursor: pointer; }
+
+.formArea .buttonArea .submit .conform { background-color: #000; border: 1px solid #000; color: #fff; }
+
+.formArea .buttonArea a.privacyModal { color: #29bace; font-weight: bold; text-decoration: underline; }
+
+.formArea .buttonArea input[type="checkbox"] { cursor: pointer; background-image: url("../upload/icon/checkboxDefault.png"); background-repeat: no-repeat; background-size: 100%; width: 20px; height: 20px; vertical-align: text-top; }
+
+.formArea .buttonArea input[type="checkbox"]:checked { background-image: url("../upload/icon/checkboxChecked.png"); }
+
+.formArea .buttonArea label { margin-left: 4px; line-height: 20px; }
+
+#privacyModal { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); }
+
+#privacyModal .modalWrap { background: #fff; width: 900px; height: 500px; position: relative; position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); }
+
+#privacyModal .modalWrap h3 { font-size: 24px; text-align: center; font-weight: bold; color: #fff; height: 60px; line-height: 60px; background: url("../upload/img/popupTitleBg.png") repeat-y; }
+
+#privacyModal .modalWrap a.close { background: url("../upload/icon/closeWhite.png") no-repeat center; display: block; width: 32px; height: 32px; position: absolute; top: 12px; right: 12px; }
+
+#privacyModal .modalWrap .popupContWrap { overflow-y: auto; }
+
+#privacyModal .modalWrap .popupContWrap .popupCont { padding: 30px; }
+
+@media screen and (min-width: 1025px) { html, body { overflow: hidden; }
+  .wrap { position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); -webkit-box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.2); box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.2); }
+  .textArea { padding: 60px; }
+  .textArea p span { display: block; } }
+
+@media screen and (max-width: 1220px) { .wrap { width: 1000px; }
+  .formArea { padding: 60px 40px; } }
+
+@media screen and (max-width: 1024px) { .wrap { width: 80%; position: relative; display: block; height: auto; margin: 0 auto; }
+  .imgArea { background-image: url("../upload/img/image.jpg"); background-repeat: no-repeat; background-size: cover; width: 100%; height: 300px; position: relative; }
+  .imgArea .bgBlack { background: rgba(0, 0, 0, 0.5); width: 100%; height: inherit; }
+  .imgArea .textArea { text-align: center; width: 70%; position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); }
+  .formArea { margin: 0 auto; }
+  .formArea .formWrap .formItem::after { display: table; content: ''; clear: both; }
+  .formArea .formWrap .formItem input[type="radio"] { display: none; }
+  .formArea .formWrap .formItem input[type="radio"] + label { display: block; cursor: pointer; width: 50%; height: 44px; line-height: 42px; text-align: center; -webkit-box-sizing: border-box; box-sizing: border-box; margin: 0; border: 1px solid #d8d8d8; background-color: #fff; float: left; }
+  .formArea .formWrap .formItem input[type="radio"]:checked + label { color: #29bace; border-color: #29bace; } }
+
+@media screen and (max-width: 900px) { #privacyModal .modalWrap { width: 600px; } }
+
+@media screen and (max-width: 630px) { .wrap { width: 100%; }
+  .imgArea { height: 240px; }
+  .imgArea .textArea { width: 88%; }
+  .imgArea .textArea h2 { font-size: 24px; }
+  .imgArea .textArea p { font-size: 13px; }
+  .formArea { padding: 24px 15px 60px; width: 100%; -webkit-box-sizing: border-box; box-sizing: border-box; }
+  .formArea .formWrap .formItem select, .formArea .formWrap .formItem input[type='text'] { width: 100%; }
+  .formArea .buttonArea { margin-top: 30px; }
+  .formArea .buttonArea input[type='submit'] { width: 100%; }
+  #privacyModal .modalWrap { width: 100%; height: 100%; }
+  #privacyModal .modalWrap h3 { background: none; color: #000; font-size: 18px; }
+  #privacyModal .modalWrap a.close { background-image: url("../upload/icon/closeBlack.png"); background-repaet: no-repaet; background-positon: center; background-size: 100%; width: 24px; height: 24px; top: 18px; }
+  #privacyModal .modalWrap .popupContWrap .popupCont { padding: 0 15px 15px; }
+  #privacyModal .modalWrap .popupContWrap .popupCont p { background: #f5f5f5; padding: 15px; } }
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) { /* Enter your style code */
+  .buttonArea { margin-bottom: 60px; } }
